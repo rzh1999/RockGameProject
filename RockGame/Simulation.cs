@@ -18,8 +18,8 @@ namespace RockGame
 
         public void RunSimulation()
         {
-            int singleOrVersus = SinglePlayerOrVersus();
-            SetPlayersUp(singleOrVersus);
+            int playType = PlayType();
+            SetPlayersUp(playType);
             //Set players names
             //human.SetPlayersName();
             //int random = computer.GenerateRandomNumber();
@@ -66,7 +66,7 @@ namespace RockGame
             }
         }
         
-        public int SinglePlayerOrVersus()
+        public int PlayType()
         {
             Console.WriteLine($"Enter 1 for single player or 2 for multi-player: ");
             string userInput = Console.ReadLine();
@@ -96,6 +96,17 @@ namespace RockGame
                     break;
 
             }
+        }
+
+        public void PlayGame(int playType)
+        {
+            //Set whos playing human vs human or human vs computer ie player 1 player 2
+            
+            //ask player1 to choose from list of choices
+            //ask player2 to choose from list of choices
+            // determine a winner
+            //set winners score
+
         }
     }
 }
