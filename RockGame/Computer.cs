@@ -32,7 +32,8 @@ namespace RockGame
         public int GenerateRandomNumber()
         {
             Random random = new Random();
-            //Generate a random 3 digit number
+
+            //Generate and return a random 3 digit number
             return random.Next(100, 999);
         }
     }
