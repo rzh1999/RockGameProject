@@ -16,6 +16,6 @@ namespace RockGame
 
         }
 
-        public abstract void GetPlayersName();
+        //public abstract void GetPlayersName();
     }
 }

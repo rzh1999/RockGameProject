@@ -15,7 +15,7 @@ namespace RockGame
             
             score = 0;
         }
-        public override void GetPlayersName()
+        public void SetPlayersName()
         {
             //Create a human object sinc ewe are getting players name
             Human human = new Human();
@@ -23,7 +23,8 @@ namespace RockGame
             human.name = Console.ReadLine();
 
             //Check to make sure something is entered for name
-            while (string.IsNullOrEmpty(human.name))
+            int number;
+            while (string.IsNullOrEmpty(human.name) || int.TryParse(human.name, out number))
             {
                 Console.WriteLine($"Player name cannot be empty. Please re-enter a name!");
                 human.name = Console.ReadLine();
@@ -31,9 +32,6 @@ namespace RockGame
             
         }
 
-        public void test()
-        {
-            Console.WriteLine("Test");
-        }
+       
     }
 }
