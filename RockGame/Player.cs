@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace RockGame
 {
-    class Program
+    public abstract class Player
     {
-        static void Main(string[] args)
+        public string name;
+        public int score;
+
+        public Player()
         {
-            Simulation simulation = new Simulation();
-            simulation.RunSimulation();
+
         }
+
+        public abstract void GetPlayersName();
     }
 }
