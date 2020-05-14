@@ -12,10 +12,6 @@ namespace RockGame
         public Player player2;
         public string resultSring;
 
-        //public Human human = new Human();
-        //public Computer computer = new Computer();
-        Human human = new Human();
-        Computer computer = new Computer();
         
         public Simulation()
         {
