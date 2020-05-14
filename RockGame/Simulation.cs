@@ -160,10 +160,10 @@ namespace RockGame
             return playerChoice;
         }
 
-        public int DetermineWinner(int player1Choice, int player2Choice)
+        public void DetermineWinner(int player1Choice, int player2Choice)
         {
             //Return 1 for a winner 2 for no winner and 3 for a tie
-            int retVal = 0;
+            
             string resultString = "";
             //get each users "string" choice in the list
             //Since we know the index of th elist item we want use Item[int32] propertie of list so we dont have to llop through list to get values
@@ -171,9 +171,9 @@ namespace RockGame
             string player2Gesture = choices[player2Choice-1].ToLower();
             if (player1Gesture == player2Gesture) {
                 resultString = "There was a Tie!!!";
-                retVal =3;
+            
                 Console.WriteLine(resultSring);
-                return retVal;
+            
             } //no winner
             switch (player1Gesture)
             {
@@ -192,7 +192,7 @@ namespace RockGame
                             
 
                         }
-                        retVal = 1;
+                      
 
                         DisplayMatchInfo(player1.name, resultString);
                         break;
@@ -200,7 +200,7 @@ namespace RockGame
                     else if (player2Gesture == "paper"){
                         player2.score++;
                         resultString = "Paper Covers Rock";
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
@@ -208,13 +208,13 @@ namespace RockGame
                     {
                         player2.score++;
                         resultString = "Spock Vaporizes Rock";
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                     else {
                         resultString = "No Winner Try Again";
-                        retVal = 2;
+                      
                         Console.WriteLine(resultString);
                         break;
                     }
@@ -232,7 +232,7 @@ namespace RockGame
                         {
                             resultString = "Scissors Decapitates Lizzard";
                         }
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player1.name, resultString);
                         break;
                     }
@@ -240,7 +240,7 @@ namespace RockGame
                     {
                         player2.score++;
                         resultString = "Rock Crushes Scissors";
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
@@ -248,14 +248,14 @@ namespace RockGame
                     {
                         player2.score++;
                         resultString = "Spock Smashes Scissors";
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                     else
                     {
                         resultString = "No Winner Try Again";
-                        retVal = 2;
+                      
                         break;
                     }
                 case "paper":
@@ -270,7 +270,7 @@ namespace RockGame
                         {
                             resultString = "Paper Disproves Spock";
                         }
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player1.name, resultString);
                         break;
                     }
@@ -278,7 +278,7 @@ namespace RockGame
                     {
                         player2.score++;
                         resultString = "Scissors Cuts Paper";
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
@@ -286,14 +286,14 @@ namespace RockGame
                     {
                         player2.score++;
                         resultString = "Lizzard Eats Paper";
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                     else
                     {
                         resultString = "No Winner Try Again";
-                        retVal = 2;
+                      
                         break;
                     }
                 case "lizzard":
@@ -308,7 +308,7 @@ namespace RockGame
                         {
                             resultString = "Lizzard Eats Paper";
                         }
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player1.name, resultString);
                         break;
                     }
@@ -316,7 +316,7 @@ namespace RockGame
                     {
                         player2.score++;
                         resultString = "Rock Crushes Lizzard";
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
@@ -324,14 +324,14 @@ namespace RockGame
                     {
                         player2.score++;
                         resultString = "Scissors Decapitates Lizzard";
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                     else
                     {
                         resultString = "No Winner Try Again";
-                        retVal = 2;
+                      
                         break;
                     }
                 case "spock":
@@ -346,7 +346,7 @@ namespace RockGame
                         {
                             resultString = "Spock vaporizes Rock";
                         }
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player1.name, resultString);
                         break;
                     }
@@ -354,7 +354,7 @@ namespace RockGame
                     {
                         player2.score++;
                         resultString = "Lizzard Poisons Spock";
-                        retVal = 1;
+                      
                         DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
@@ -362,21 +362,21 @@ namespace RockGame
                     {
                         player2.score++;
                         resultString = "Paper Disproves Spock";
-                        retVal = 1;
+                        
                         DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                     else
                     {
                         resultString = "No Winner Try Again";
-                        retVal = 2;
+                        
                         break;
                     }
                 default:
                     break;
             }
             
-            return retVal;
+            
         }
 
         public void DisplayMatchInfo(string playerName, string resultString)
