@@ -8,8 +8,8 @@ namespace RockGame
 {
     public class Simulation
     {
-        public string player1;
-        public string player2;
+        public Player player1;
+        public Player player2;
 
         //public Human human = new Human();
         //public Computer computer = new Computer();
@@ -90,17 +90,18 @@ namespace RockGame
             switch (players)
             {
                 case 1:
-                    human.SetPlayersName();
-                    int random = computer.GenerateRandomNumber();
-                    computer.SetPlayersName(random);
-                    player1 = human.name;
-                    player2 = computer.name;
+                    player1 = new Human();
+                    player2 = new Computer;
+                    player1.SetPlayersName();
+                    //int random = computer.GenerateRandomNumber();
+                    player2.SetPlayersName();
+                    
                     break;
                 case 2:
-                    human.SetPlayersName();
-                    human.SetPlayersName();
-                    player1 = human.name;
-                    player2 = human.name;
+                    player1 = new Human();
+                    player2 = new Human();
+                    player1.SetPlayersName();
+                    player2.SetPlayersName();
                     break;
                 default:
                     break;
@@ -170,9 +171,9 @@ namespace RockGame
             return choice;
         }
 
-        public void MakeAChoice(string player, List<String> choices)
+        public void MakeAChoice(Player player, List<String> choices)
         {
-            Console.WriteLine($"{player} select a choice: ");
+            Console.WriteLine($"{player.name} select a choice: ");
             DisplayOptions(choices);
             string userInput = Console.ReadLine();
             string playerChoice = IsAValidChoice(userInput, choices);
