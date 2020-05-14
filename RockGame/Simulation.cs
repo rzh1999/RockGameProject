@@ -114,9 +114,20 @@ namespace RockGame
 
         public void PlayGame(int playType)
         {
-           
-            int player1Choice = MakeAChoice(player1, choices);
-            int player2Choice = MakeAChoice(player2, choices);
+            int player1Choice = 0;
+            int player2Choice = 0;
+            if (playType == 1)
+            {
+                player1Choice = MakeAChoice(player1, choices);
+                player2Choice = ComputerMakesChoice();
+            }
+            else
+            {
+                player1Choice = MakeAChoice(player1, choices);
+                player2Choice = MakeAChoice(player2, choices);
+                
+            }
+            
 
             // determine a winner
             DetermineWinner(player1Choice, player2Choice);
@@ -279,6 +290,15 @@ namespace RockGame
             }
         }
 
-       
+       public int ComputerMakesChoice()
+        {
+
+            Random random = new Random();
+            int randomChoice = random.Next(1, 5);
+            Console.WriteLine($"{player2.name} chose {randomChoice}. {choices[randomChoice]}");
+            Console.WriteLine();
+            return randomChoice;
+
+        }
     }
 }

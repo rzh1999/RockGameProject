@@ -14,7 +14,7 @@ namespace RockGame
             //Create computer object since we are getting name
             //Computer computer = new Computer();
 
-            Console.WriteLine("Please enter one or more letters for the prefix name: ");
+            Console.WriteLine("Please enter one or more letters for the computers name prefix: ");
             string prefixName = Console.ReadLine();
 
             //Check wether a string is empty or a number
