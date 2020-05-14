@@ -133,7 +133,17 @@ namespace RockGame
         {
            
             int choiceCount = choices.Count();
-            int numChoice = int.Parse(choice);
+            int numChoice =0;
+            //Had to add this logic because the int.Parse fails on empty maybe use try
+            if (string.IsNullOrEmpty(choice))
+            {
+                numChoice = 0;
+            }
+            else
+            {
+                
+                numChoice = int.Parse(choice);
+            }
             int zero = int.Parse("0");
             //Later on investigate this using recursion?
             while(numChoice <= zero || numChoice > choiceCount)
