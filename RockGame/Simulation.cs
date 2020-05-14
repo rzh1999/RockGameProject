@@ -33,7 +33,7 @@ namespace RockGame
             while (player1.score < 3 && player2.score < 3)
             {
                 Console.WriteLine($"Player ones score {player1.score}");
-                int retVal = PlayGame(1);
+                PlayGame(1);
             }
             DisplayWinner();
 
@@ -112,7 +112,7 @@ namespace RockGame
             }
         }
 
-        public int PlayGame(int playType)
+        public void PlayGame(int playType)
         {
            
             int player1Choice = MakeAChoice(player1, choices);
