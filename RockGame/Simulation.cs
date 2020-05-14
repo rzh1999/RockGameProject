@@ -119,8 +119,8 @@ namespace RockGame
             int player2Choice = MakeAChoice(player2, choices);
 
             // determine a winner
-            int matchStatus = DetermineWinner(player1Choice, player2Choice);
-            return matchStatus;
+            DetermineWinner(player1Choice, player2Choice);
+           
             
 
         }
