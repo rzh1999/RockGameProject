@@ -61,7 +61,7 @@ namespace RockGame
         {
             int entryNumber = 1;
 
-            Console.WriteLine($"Please enter a choice: ");
+            //Console.WriteLine($"Please enter a choice: ");
 
             foreach(String item in choices)
             {
@@ -91,7 +91,7 @@ namespace RockGame
             {
                 case 1:
                     player1 = new Human();
-                    player2 = new Computer;
+                    player2 = new Computer();
                     player1.SetPlayersName();
                     //int random = computer.GenerateRandomNumber();
                     player2.SetPlayersName();
@@ -111,36 +111,8 @@ namespace RockGame
 
         public void PlayGame(int playType, List<String> choices)
         {
-            //Set whos playing human vs human or human vs computer ie player 1 player 2
-            //use a switch here because I expect to see more play types added
-
-            //string player1="";
-            //string player2="";
-            //switch (playType)
-            //{
-            //    case 1:
-            //        //Human vs Computer
-            //        player1 = human.name;
-            //        player2 = computer.name;
-            //        break;
-            //    case 2:
-            //        player1 = human.name;
-            //        player2 = otherHuman.name;
-            //        break;
-            //}
-
-            //ask player1 to choose from list of choices
-            //Console.WriteLine($"{player1} select a choice: ");
-            //DisplayOptions(choices);
-            //string userInputA = Console.ReadLine();
-            //string player1Choice = IsAValidChoice(userInputA, choices);
+           
             MakeAChoice(player1, choices);
-
-            //ask player2 to choose from list of choices
-            //Console.WriteLine($"{player2} select a choice: ");
-            //DisplayOptions(choices);
-            //string userInputB = Console.ReadLine();
-            //string player2Choice = IsAValidChoice(userInputA, choices);
             MakeAChoice(player2, choices);
 
             // determine a winner
@@ -148,27 +120,20 @@ namespace RockGame
 
         }
 
-        public string IsAValidChoice(string choice, List<String> choices)
+        public int IsAValidChoice(string choice, List<String> choices)
         {
-            bool isOk = false;
+           
             int choiceCount = choices.Count();
             int numChoice = int.Parse(choice);
             int zero = int.Parse("0");
-
-            //Need to fix this logic its not working
-            //Need to fix this logic its not working
-            //Need to fix this logic its not working
-            //Need to fix this logic its not working
-            //Need to fix this logic its not working
-            //Need to fix this logic its not working
-            //Need to fix this logic its not working
+            //Later on investigate this using recursion?
             while(numChoice <= zero || numChoice > choiceCount)
             {
                 Console.WriteLine("Please selecet a valid choice");
-                choice = Console.ReadLine();
+                numChoice = int.Parse(Console.ReadLine());
 
             }
-            return choice;
+            return numChoice;
         }
 
         public void MakeAChoice(Player player, List<String> choices)
@@ -176,7 +141,7 @@ namespace RockGame
             Console.WriteLine($"{player.name} select a choice: ");
             DisplayOptions(choices);
             string userInput = Console.ReadLine();
-            string playerChoice = IsAValidChoice(userInput, choices);
+            int playerChoice = IsAValidChoice(userInput, choices);
         }
     }
 }
