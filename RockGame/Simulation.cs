@@ -32,8 +32,8 @@ namespace RockGame
             
             while (player1.score < 3 && player2.score < 3)
             {
-                Console.WriteLine($"Player ones score {player1.score}");
-                PlayGame(1);
+                
+                PlayGame(playType);
             }
             DisplayWinner();
 
@@ -179,43 +179,16 @@ namespace RockGame
             {
                 case "rock":
                     if (player2Gesture == "scissors" || player2Gesture == "lizzard") {
-                       player1.score++;
-                        if (player2Gesture == "scissors")
-                        {
-                            resultString = "Rock Crushes Scissors";
-                            
-                            
-                        }
-                        if (player2Gesture == "lizzard")
-                        {
-                            resultString = "Rock Crushes Lizzard";
-                            
-
-                        }
-                      
-
+                        player1.score++;
+                        resultString = $"{player1Gesture} beats {player2Gesture}";
                         DisplayMatchInfo(player1.name, resultString);
                         break;
                     }
-                    else if (player2Gesture == "paper"){
-                        player2.score++;
-                        resultString = "Paper Covers Rock";
-                      
-                        DisplayMatchInfo(player2.name, resultString);
-                        break;
-                    }
-                    else if (player2Gesture == "spock")
+                    else
                     {
                         player2.score++;
-                        resultString = "Spock Vaporizes Rock";
-                      
+                        resultString = $"{player1Gesture} defeats {player2Gesture}";
                         DisplayMatchInfo(player2.name, resultString);
-                        break;
-                    }
-                    else {
-                        resultString = "No Winner Try Again";
-                      
-                        Console.WriteLine(resultString);
                         break;
                     }
 
@@ -223,153 +196,61 @@ namespace RockGame
                     if (player2Gesture == "paper" || player2Gesture == "lizzard")
                     {
                         player1.score++;
-                        if (player2Gesture == "paper")
-                        {
-                            resultString = "Scissors Cuts Paper";
-                           
-                        }
-                        if (player2Gesture == "lizzard")
-                        {
-                            resultString = "Scissors Decapitates Lizzard";
-                        }
-                      
+                        resultString = $"{player1Gesture} beats {player2Gesture}";
                         DisplayMatchInfo(player1.name, resultString);
-                        break;
-                    }
-                    else if (player2Gesture == "rock")
-                    {
-                        player2.score++;
-                        resultString = "Rock Crushes Scissors";
-                      
-                        DisplayMatchInfo(player2.name, resultString);
-                        break;
-                    }
-                    else if (player2Gesture == "spock")
-                    {
-                        player2.score++;
-                        resultString = "Spock Smashes Scissors";
-                      
-                        DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                     else
                     {
-                        resultString = "No Winner Try Again";
-                      
+                        player2.score++;
+                        resultString = $"{player1Gesture} defeats {player2Gesture}";
+                        DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                 case "paper":
                     if (player2Gesture == "rock" || player2Gesture == "spock")
                     {
+                       
                         player1.score++;
-                        if (player2Gesture == "paper")
-                        {
-                            resultString = "Paper Covers Rock";
-                        }
-                        if (player2Gesture == "lizzard")
-                        {
-                            resultString = "Paper Disproves Spock";
-                        }
-                      
+                        resultString = $"{player1Gesture} beats {player2Gesture}";
                         DisplayMatchInfo(player1.name, resultString);
-                        break;
-                    }
-                    else if (player2Gesture == "scissors")
-                    {
-                        player2.score++;
-                        resultString = "Scissors Cuts Paper";
-                      
-                        DisplayMatchInfo(player2.name, resultString);
-                        break;
-                    }
-                    else if (player2Gesture == "lizzard")
-                    {
-                        player2.score++;
-                        resultString = "Lizzard Eats Paper";
-                      
-                        DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                     else
                     {
-                        resultString = "No Winner Try Again";
-                      
+                        player2.score++;
+                        resultString = $"{player1Gesture} defeats {player2Gesture}";
+                        DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                 case "lizzard":
                     if (player2Gesture == "spock" || player2Gesture == "paper")
                     {
                         player1.score++;
-                        if (player2Gesture == "spock")
-                        {
-                            resultString = "Lizzard Poisons Spock";
-                        }
-                        if (player2Gesture == "paper")
-                        {
-                            resultString = "Lizzard Eats Paper";
-                        }
-                      
+                        resultString = $"{player1Gesture} beats {player2Gesture}";
                         DisplayMatchInfo(player1.name, resultString);
-                        break;
-                    }
-                    else if (player2Gesture == "rock")
-                    {
-                        player2.score++;
-                        resultString = "Rock Crushes Lizzard";
-                      
-                        DisplayMatchInfo(player2.name, resultString);
-                        break;
-                    }
-                    else if (player2Gesture == "scissors")
-                    {
-                        player2.score++;
-                        resultString = "Scissors Decapitates Lizzard";
-                      
-                        DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                     else
                     {
-                        resultString = "No Winner Try Again";
-                      
+                        player2.score++;
+                        resultString = $"{player1Gesture} defeats {player2Gesture}";
+                        DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                 case "spock":
                     if (player2Gesture == "scissors" || player2Gesture == "Rock")
                     {
                         player1.score++;
-                        if (player2Gesture == "scissors")
-                        {
-                            resultString = "Spock Smashes Scissors";
-                        }
-                        if (player2Gesture == "Rock")
-                        {
-                            resultString = "Spock vaporizes Rock";
-                        }
-                      
+                        resultString = $"{player1Gesture} beats {player2Gesture}";
                         DisplayMatchInfo(player1.name, resultString);
-                        break;
-                    }
-                    else if (player2Gesture == "lizzard")
-                    {
-                        player2.score++;
-                        resultString = "Lizzard Poisons Spock";
-                      
-                        DisplayMatchInfo(player2.name, resultString);
-                        break;
-                    }
-                    else if (player2Gesture == "paper")
-                    {
-                        player2.score++;
-                        resultString = "Paper Disproves Spock";
-                        
-                        DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                     else
                     {
-                        resultString = "No Winner Try Again";
-                        
+                        player2.score++;
+                        resultString = $"{player1Gesture} defeats {player2Gesture}";
+                        DisplayMatchInfo(player2.name, resultString);
                         break;
                     }
                 default:
@@ -381,8 +262,9 @@ namespace RockGame
 
         public void DisplayMatchInfo(string playerName, string resultString)
         {
-            Console.WriteLine(resultSring);
+            Console.WriteLine(resultString);
             Console.WriteLine($"{playerName} wins!!");
+            Console.WriteLine();
         }
 
         public void DisplayWinner()
