@@ -8,10 +8,10 @@ namespace RockGame
 {
     public class Computer : Player
     {
-        public void SetPlayersName(int input)
+        public override void SetPlayersName()
         {
             //Create computer object since we are getting name
-            Computer computer = new Computer();
+            //Computer computer = new Computer();
 
             Console.WriteLine("Please enter one or more letters for the prefix name: ");
             string prefixName = Console.ReadLine();
@@ -24,9 +24,13 @@ namespace RockGame
                 prefixName = Console.ReadLine();
             }
 
+            int randomName = GenerateRandomNumber();
+
             //Build string and set computers name
-            computer.name = prefixName.ToUpper() +  input.ToString();
-            Console.WriteLine($"Thank you, the computers name is {computer.name}");
+            this.name = prefixName.ToUpper() +  randomName.ToString();
+            Console.WriteLine($"Thank you, the computers name is {this.name}");
+
+            
         }
 
         public int GenerateRandomNumber()

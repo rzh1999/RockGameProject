@@ -8,9 +8,14 @@ namespace RockGame
 {
     public class Simulation
     {
+        public string player1;
+        public string player2;
+
+        //public Human human = new Human();
+        //public Computer computer = new Computer();
+        Human human = new Human();
+        Computer computer = new Computer();
         
-        public Human human = new Human();
-        public Computer computer = new Computer();
         public Simulation()
         {
 
@@ -28,8 +33,8 @@ namespace RockGame
             //Generate choice list
             List<String> choices = new List<String>();
             choices = GenerateListChoices();
-            DisplayOptions(choices);
-
+            // DisplayOptions(choices);
+            PlayGame(1, choices);
 
             Console.ReadLine();
         }
@@ -81,16 +86,21 @@ namespace RockGame
 
         public void SetPlayersUp(int players)
         {
+            
             switch (players)
             {
                 case 1:
                     human.SetPlayersName();
                     int random = computer.GenerateRandomNumber();
                     computer.SetPlayersName(random);
+                    player1 = human.name;
+                    player2 = computer.name;
                     break;
                 case 2:
                     human.SetPlayersName();
                     human.SetPlayersName();
+                    player1 = human.name;
+                    player2 = human.name;
                     break;
                 default:
                     break;
@@ -98,15 +108,74 @@ namespace RockGame
             }
         }
 
-        public void PlayGame(int playType)
+        public void PlayGame(int playType, List<String> choices)
         {
             //Set whos playing human vs human or human vs computer ie player 1 player 2
-            
+            //use a switch here because I expect to see more play types added
+
+            //string player1="";
+            //string player2="";
+            //switch (playType)
+            //{
+            //    case 1:
+            //        //Human vs Computer
+            //        player1 = human.name;
+            //        player2 = computer.name;
+            //        break;
+            //    case 2:
+            //        player1 = human.name;
+            //        player2 = otherHuman.name;
+            //        break;
+            //}
+
             //ask player1 to choose from list of choices
+            //Console.WriteLine($"{player1} select a choice: ");
+            //DisplayOptions(choices);
+            //string userInputA = Console.ReadLine();
+            //string player1Choice = IsAValidChoice(userInputA, choices);
+            MakeAChoice(player1, choices);
+
             //ask player2 to choose from list of choices
+            //Console.WriteLine($"{player2} select a choice: ");
+            //DisplayOptions(choices);
+            //string userInputB = Console.ReadLine();
+            //string player2Choice = IsAValidChoice(userInputA, choices);
+            MakeAChoice(player2, choices);
+
             // determine a winner
             //set winners score
 
+        }
+
+        public string IsAValidChoice(string choice, List<String> choices)
+        {
+            bool isOk = false;
+            int choiceCount = choices.Count();
+            int numChoice = int.Parse(choice);
+            int zero = int.Parse("0");
+
+            //Need to fix this logic its not working
+            //Need to fix this logic its not working
+            //Need to fix this logic its not working
+            //Need to fix this logic its not working
+            //Need to fix this logic its not working
+            //Need to fix this logic its not working
+            //Need to fix this logic its not working
+            while(numChoice <= zero || numChoice > choiceCount)
+            {
+                Console.WriteLine("Please selecet a valid choice");
+                choice = Console.ReadLine();
+
+            }
+            return choice;
+        }
+
+        public void MakeAChoice(string player, List<String> choices)
+        {
+            Console.WriteLine($"{player} select a choice: ");
+            DisplayOptions(choices);
+            string userInput = Console.ReadLine();
+            string playerChoice = IsAValidChoice(userInput, choices);
         }
     }
 }
