@@ -11,8 +11,8 @@ namespace RockGame
         public Player player1;
         public Player player2;
         public string resultSring;
+        public List<String> choices = new List<String>();
 
-        
         public Simulation()
         {
 
@@ -25,7 +25,7 @@ namespace RockGame
             SetPlayersUp(playType);
             
             //Generate choice list
-            List<String> choices = new List<String>();
+            //List<String> choices = new List<String>();
             choices = GenerateListChoices();
 
             // DisplayOptions(choices);
@@ -33,7 +33,7 @@ namespace RockGame
             while (player1.score < 3 && player2.score < 3)
             {
                 Console.WriteLine($"Player ones score {player1.score}");
-                int retVal = PlayGame(1, choices);
+                int retVal = PlayGame(1);
             }
             DisplayWinner();
 
@@ -44,7 +44,7 @@ namespace RockGame
 
         public List<String> GenerateListChoices()
         {
-            List<String> choices = new List<String>();
+            //List<String> choices = new List<String>();
             string rock = "Rock";
             string scissors = "Scissors";
             string paper = "Paper";
@@ -60,7 +60,7 @@ namespace RockGame
             return choices;
         }
 
-        public void DisplayOptions(List<String> choices)
+        public void DisplayOptions()
         {
             int entryNumber = 1;
 
@@ -112,20 +112,20 @@ namespace RockGame
             }
         }
 
-        public int PlayGame(int playType, List<String> choices)
+        public int PlayGame(int playType)
         {
            
             int player1Choice = MakeAChoice(player1, choices);
             int player2Choice = MakeAChoice(player2, choices);
 
             // determine a winner
-            int matchStatus = DetermineWinner(player1Choice, player2Choice, choices);
+            int matchStatus = DetermineWinner(player1Choice, player2Choice);
             return matchStatus;
             
 
         }
 
-        public int IsAValidChoice(string choice, List<String> choices)
+        public int IsAValidChoice(string choice)
         {
            
             int choiceCount = choices.Count();
@@ -154,13 +154,13 @@ namespace RockGame
         public int MakeAChoice(Player player, List<String> choices)
         {
             Console.WriteLine($"{player.name} select a choice: ");
-            DisplayOptions(choices);
+            DisplayOptions();
             string userInput = Console.ReadLine();
-            int playerChoice = IsAValidChoice(userInput, choices);
+            int playerChoice = IsAValidChoice(userInput);
             return playerChoice;
         }
 
-        public int DetermineWinner(int player1Choice, int player2Choice, List<String> choices)
+        public int DetermineWinner(int player1Choice, int player2Choice)
         {
             //Return 1 for a winner 2 for no winner and 3 for a tie
             int retVal = 0;
