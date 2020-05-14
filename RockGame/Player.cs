@@ -10,7 +10,7 @@ namespace RockGame
     {
         public string name;
         public int score;
-
+        //public string resultString;
         public Player()
         {
 

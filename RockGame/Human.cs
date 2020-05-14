@@ -9,6 +9,7 @@ namespace RockGame
     public class Human : Player
     {
         
+        
 
         public Human()
         {

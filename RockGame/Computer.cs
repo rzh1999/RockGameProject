@@ -8,6 +8,7 @@ namespace RockGame
 {
     public class Computer : Player
     {
+        
         public override void SetPlayersName()
         {
             //Create computer object since we are getting name
