@@ -17,5 +17,7 @@ namespace RockGame
         }
 
         public abstract void SetPlayersName();
+
+       
     }
 }
